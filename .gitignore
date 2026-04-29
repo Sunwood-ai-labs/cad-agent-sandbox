@@ -1,0 +1,61 @@
+# Python / uv local state
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node dependencies
+node_modules/
+cases/*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local tool installs and downloaded binaries
+tools/
+cases/*/tools/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Generated CAD outputs and local benchmark evidence
+outputs/
+cases/*/outputs/
+reports/*
+!reports/
+!reports/benchmark_report.md
+!reports/measurements.csv
+!reports/npm_audit_summary.csv
+!reports/openscad_step_probe.csv
+!reports/step_imports.csv
+!reports/tool_landscape.md
+!reports/screenshots/
+!reports/screenshots/*.png
+cases/*/reports/*
+!cases/*/reports/
+!cases/*/reports/benchmark_report.md
+!cases/*/reports/measurements.csv
+!cases/*/reports/npm_audit_summary.csv
+!cases/*/reports/openscad_step_probe.csv
+!cases/*/reports/step_imports.csv
+!cases/*/reports/tool_landscape.md
+!cases/*/reports/screenshots/
+!cases/*/reports/screenshots/*.png
+
+# Temporary probe frames, rendered video, and generated render work caches
+.tmp_frames_probe/
+videos/cupboard-cad-comparison/.hyperframes/
+videos/cupboard-cad-comparison/renders/
+videos/cupboard-cad-comparison/qa_frames/
+cases/*/videos/*/.hyperframes/
+cases/*/videos/*/renders/
+cases/*/videos/*/qa_frames/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini

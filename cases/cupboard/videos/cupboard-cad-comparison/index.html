@@ -1,0 +1,695 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f4f1e7;
+        color: #243629;
+        font-family: "Noto Sans JP", "Segoe UI", sans-serif;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f4f1e7;
+      }
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #f4f1e7;
+      }
+      .scene:not(#scene-1) {
+        opacity: 0;
+        transform: translate3d(2200px, 0, 0);
+      }
+      .botanical-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(89, 123, 84, 0.09) 1px, rgba(89, 123, 84, 0) 1px),
+          linear-gradient(90deg, rgba(89, 123, 84, 0.07) 1px, rgba(89, 123, 84, 0) 1px);
+        background-size: 72px 72px;
+        opacity: 0.48;
+      }
+      .leaf {
+        position: absolute;
+        width: 230px;
+        height: 230px;
+        opacity: 0.28;
+      }
+      .leaf svg {
+        width: 100%;
+        height: 100%;
+      }
+      .leaf path,
+      .leaf ellipse,
+      .leaf line {
+        stroke: #597b54;
+        fill: rgba(89, 123, 84, 0.32);
+      }
+      .leaf-a {
+        left: 64px;
+        top: 52px;
+        transform: rotate(-18deg);
+      }
+      .leaf-b {
+        right: 52px;
+        bottom: 46px;
+        transform: rotate(162deg);
+      }
+      .scene-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        padding: 84px 96px 96px;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+      .kicker {
+        font-family: "IBM Plex Mono", Consolas, "Noto Sans JP", monospace;
+        font-size: 24px;
+        letter-spacing: 0;
+        color: #597b54;
+        font-weight: 800;
+      }
+      .headline {
+        font-family: Fraunces, Georgia, "Noto Sans JP", serif;
+        font-size: 78px;
+        line-height: 1.07;
+        font-weight: 900;
+        letter-spacing: 0;
+        color: #243629;
+        max-width: 1260px;
+      }
+      .subhead {
+        font-size: 31px;
+        line-height: 1.42;
+        max-width: 1200px;
+        color: #425542;
+        font-weight: 500;
+      }
+      .brand-footer {
+        position: absolute;
+        z-index: 20;
+        right: 64px;
+        bottom: 42px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 18px 12px 12px;
+        border: 1px solid rgba(89, 123, 84, 0.35);
+        border-radius: 999px;
+        background: rgba(244, 241, 231, 0.86);
+        box-shadow: 0 12px 34px rgba(36, 54, 41, 0.12);
+        font-family: "IBM Plex Mono", Consolas, monospace;
+        font-size: 18px;
+        font-weight: 700;
+        color: #243629;
+      }
+      .brand-footer img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .spec-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        width: 100%;
+        max-width: 1480px;
+      }
+      .spec,
+      .panel,
+      .score-card,
+      .method-score,
+      .main-shot,
+      .view-tile,
+      .summary-card {
+        border: 1px solid rgba(89, 123, 84, 0.24);
+        border-radius: 8px;
+        background: rgba(255, 252, 242, 0.84);
+        box-shadow: 0 18px 44px rgba(36, 54, 41, 0.08);
+      }
+      .spec {
+        padding: 22px 22px 20px;
+      }
+      .spec-value {
+        font-family: "IBM Plex Mono", Consolas, monospace;
+        font-size: 42px;
+        font-weight: 900;
+        color: #2e3134;
+        font-variant-numeric: tabular-nums;
+      }
+      .spec-label {
+        margin-top: 8px;
+        font-size: 20px;
+        color: #52634e;
+      }
+      .timeline-row {
+        display: grid;
+        grid-template-columns: 1.1fr 1.2fr;
+        gap: 34px;
+        align-items: stretch;
+        margin-top: 8px;
+      }
+      .panel {
+        padding: 30px;
+        min-height: 438px;
+      }
+      .instruction-list {
+        display: grid;
+        gap: 18px;
+      }
+      .instruction-item {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 16px;
+        align-items: start;
+      }
+      .step-no {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #243629;
+        color: #f4f1e7;
+        display: grid;
+        place-items: center;
+        font-family: "IBM Plex Mono", Consolas, monospace;
+        font-size: 20px;
+        font-weight: 900;
+      }
+      .step-no::before {
+        content: attr(data-step);
+      }
+      .instruction-copy {
+        font-size: 25px;
+        line-height: 1.42;
+        color: #304434;
+      }
+      .artifact-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 22px;
+      }
+      .tag {
+        padding: 9px 13px;
+        border: 1px solid rgba(89, 123, 84, 0.28);
+        border-radius: 999px;
+        font-family: "IBM Plex Mono", Consolas, "Noto Sans JP", monospace;
+        font-size: 18px;
+        font-weight: 800;
+        color: #243629;
+        background: rgba(244, 241, 231, 0.75);
+      }
+      .tag.warn,
+      .artifact-pill.off {
+        border-color: rgba(185, 111, 76, 0.48);
+        color: #69341f;
+        background: rgba(185, 111, 76, 0.13);
+      }
+      .score-table {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 16px;
+        margin-top: 18px;
+      }
+      .score-card {
+        min-height: 338px;
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .score-card h3 {
+        font-family: Fraunces, Georgia, serif;
+        font-size: 35px;
+        line-height: 1;
+        color: #243629;
+      }
+      .score-number {
+        font-family: "IBM Plex Mono", Consolas, monospace;
+        font-size: 66px;
+        font-weight: 900;
+        color: #597b54;
+        font-variant-numeric: tabular-nums;
+      }
+      .score-note {
+        font-size: 19px;
+        line-height: 1.32;
+        color: #52634e;
+      }
+      .method-layout {
+        display: grid;
+        grid-template-columns: 1.02fr 0.98fr;
+        gap: 38px;
+        align-items: stretch;
+        min-height: 760px;
+      }
+      .method-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+      }
+      .method-title-row {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 22px;
+      }
+      .method-title {
+        font-family: Fraunces, Georgia, serif;
+        font-size: 78px;
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+      .method-score {
+        min-width: 162px;
+        min-height: 132px;
+        display: grid;
+        place-items: center;
+      }
+      .method-score span {
+        font-family: "IBM Plex Mono", Consolas, monospace;
+        display: block;
+        font-size: 64px;
+        color: #597b54;
+        font-weight: 900;
+        font-variant-numeric: tabular-nums;
+      }
+      .method-score small {
+        display: block;
+        font-size: 18px;
+        color: #52634e;
+        text-align: center;
+        margin-top: -18px;
+      }
+      .artifact-line {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+      }
+      .artifact-pill {
+        border-radius: 8px;
+        border: 1px solid rgba(89, 123, 84, 0.28);
+        padding: 13px 8px;
+        text-align: center;
+        font-family: "IBM Plex Mono", Consolas, "Noto Sans JP", monospace;
+        font-size: 18px;
+        font-weight: 800;
+        color: #243629;
+        background: rgba(255, 252, 242, 0.75);
+      }
+      .method-note {
+        min-height: 122px;
+        border-left: 5px solid #b96f4c;
+        padding: 18px 24px;
+        background: rgba(185, 111, 76, 0.1);
+        font-size: 25px;
+        line-height: 1.38;
+        color: #4d4a39;
+      }
+      .main-shot {
+        width: 100%;
+        height: 486px;
+        background: #faf7ed;
+        overflow: hidden;
+        box-shadow: 0 24px 70px rgba(36, 54, 41, 0.14);
+      }
+      .main-shot img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .view-strip {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .view-tile {
+        padding: 10px;
+        min-height: 190px;
+      }
+      .view-tile img {
+        width: 100%;
+        height: 144px;
+        object-fit: contain;
+        border-radius: 6px;
+        background: #f7f4ea;
+      }
+      .view-label {
+        margin-top: 8px;
+        font-family: "IBM Plex Mono", Consolas, "Noto Sans JP", monospace;
+        font-size: 16px;
+        font-weight: 800;
+        color: #344635;
+        text-align: center;
+      }
+      .comparison-bars {
+        display: grid;
+        gap: 18px;
+        width: 1220px;
+        margin-top: 10px;
+      }
+      .bar-row {
+        display: grid;
+        grid-template-columns: 210px 1fr 90px;
+        align-items: center;
+        gap: 18px;
+      }
+      .bar-label {
+        font-family: Fraunces, Georgia, serif;
+        font-size: 31px;
+        color: #243629;
+      }
+      .bar-track {
+        height: 38px;
+        border-radius: 999px;
+        background: rgba(89, 123, 84, 0.16);
+        overflow: hidden;
+      }
+      .bar-fill {
+        height: 100%;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #597b54, #9bae84);
+        transform-origin: left center;
+      }
+      .bar-score {
+        font-family: "IBM Plex Mono", Consolas, monospace;
+        font-size: 28px;
+        font-weight: 900;
+        color: #2e3134;
+        font-variant-numeric: tabular-nums;
+      }
+      .summary-layout {
+        display: grid;
+        grid-template-columns: 1.08fr 0.92fr;
+        gap: 54px;
+        align-items: start;
+      }
+      .summary-card {
+        padding: 30px;
+      }
+      .takeaways {
+        display: grid;
+        gap: 16px;
+        margin-top: 22px;
+      }
+      .takeaway {
+        font-size: 23px;
+        line-height: 1.36;
+        color: #344635;
+      }
+      .takeaway strong {
+        color: #243629;
+      }
+      #scene-9 .scene-content {
+        gap: 20px;
+      }
+      #scene-9 .headline {
+        font-size: 58px;
+        line-height: 1.12;
+        max-width: 1460px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="82"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="brand-footer" id="brand-footer">
+        <img src="assets/sunwood_icon.png" alt="Sunwood AI Labs icon" />
+        <span>Maki@Sunwood AI Labs.</span>
+      </div>
+
+      <section id="scene-1" class="scene">
+        <div class="botanical-grid"></div>
+        <div class="leaf leaf-a" data-layout-ignore>
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <line x1="80" y1="170" x2="126" y2="30" stroke-width="5" />
+            <ellipse cx="76" cy="132" rx="24" ry="13" transform="rotate(-35 76 132)" />
+            <ellipse cx="98" cy="102" rx="25" ry="13" transform="rotate(-25 98 102)" />
+            <ellipse cx="116" cy="72" rx="25" ry="13" transform="rotate(-15 116 72)" />
+          </svg>
+        </div>
+        <div class="leaf leaf-b" data-layout-ignore>
+          <svg viewBox="0 0 200 200" aria-hidden="true">
+            <line x1="80" y1="170" x2="126" y2="30" stroke-width="5" />
+            <ellipse cx="76" cy="132" rx="24" ry="13" transform="rotate(-35 76 132)" />
+            <ellipse cx="98" cy="102" rx="25" ry="13" transform="rotate(-25 98 102)" />
+            <ellipse cx="116" cy="72" rx="25" ry="13" transform="rotate(-15 116 72)" />
+          </svg>
+        </div>
+        <div class="scene-content">
+          <div class="kicker">カップボードCADベンチマーク</div>
+          <h1 class="headline">同じ指示で作った5つの無料CADワークフロー比較</h1>
+          <p class="subhead">環境構築、生成コード、CAD出力、スクリーンショット、3方向ガイドを同じ基準で見比べます。</p>
+          <div class="spec-grid">
+            <div class="spec"><div class="spec-value">900</div><div class="spec-label">mm 幅</div></div>
+            <div class="spec"><div class="spec-value">450</div><div class="spec-label">mm 本体奥行</div></div>
+            <div class="spec"><div class="spec-value">2000</div><div class="spec-label">mm 全高</div></div>
+            <div class="spec"><div class="spec-value">13</div><div class="spec-label">生成パーツ</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-2" class="scene">
+        <div class="botanical-grid"></div>
+        <div class="scene-content">
+          <div class="kicker">指示から成果物まで</div>
+          <h2 class="headline">今回の依頼と、生成された比較材料</h2>
+          <div class="timeline-row">
+            <div class="panel">
+              <div class="instruction-list">
+                <div class="instruction-item"><div class="step-no" data-step="1" aria-label="ステップ1"></div><div class="instruction-copy">無料で動くCAD生成環境をローカルに構築</div></div>
+                <div class="instruction-item"><div class="step-no" data-step="2" aria-label="ステップ2"></div><div class="instruction-copy">カップボードを同一仕様で生成して比較</div></div>
+                <div class="instruction-item"><div class="step-no" data-step="3" aria-label="ステップ3"></div><div class="instruction-copy">OpenSCADとForgeCAD CLIもベンチ対象に追加</div></div>
+                <div class="instruction-item"><div class="step-no" data-step="4" aria-label="ステップ4"></div><div class="instruction-copy">README、スクリーンショット、レポート、動画で次回も再現できる形に整理</div></div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="subhead">生成された成果物</div>
+              <div class="artifact-tags">
+                <span class="tag">STEP</span>
+                <span class="tag">STL</span>
+                <span class="tag">OBJ</span>
+                <span class="tag">3MF</span>
+                <span class="tag">PNGスクリーンショット</span>
+                <span class="tag">共通仕様の正面 / 側面 / 上面</span>
+                <span class="tag">benchmark_report.md</span>
+                <span class="tag">measurements.csv</span>
+                <span class="tag warn">既知の制約も明記</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-3" class="scene">
+        <div class="botanical-grid"></div>
+        <div class="scene-content">
+          <div class="kicker">スコア概要</div>
+          <h2 class="headline">上位はSTEP対応が決め手。メッシュ系も十分実用</h2>
+          <div class="score-table">
+            <div class="score-card"><h3>CadQuery</h3><div class="score-number">96</div><div class="score-note">STEP / STL / OBJ / PNGが通過</div></div>
+            <div class="score-card"><h3>build123d</h3><div class="score-number">96</div><div class="score-note">OpenCascade系で編集しやすい</div></div>
+            <div class="score-card"><h3>JSCAD</h3><div class="score-number">92</div><div class="score-note">軽量。今回はSTEPなし</div></div>
+            <div class="score-card"><h3>OpenSCAD</h3><div class="score-number">92</div><div class="score-note">導入しやすいCLI。STEP未生成</div></div>
+            <div class="score-card"><h3>ForgeCAD</h3><div class="score-number">88</div><div class="score-note">3MF/PNG対応。STEPはPro制約</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-4" class="scene method-scene">
+        <div class="botanical-grid"></div>
+        <div class="scene-content">
+          <div class="method-layout">
+            <div class="method-copy">
+              <div class="kicker">ツール1 / Python BREP</div>
+              <div class="method-title-row"><h2 class="method-title">CadQuery</h2><div class="method-score"><span>96</span><small>点</small></div></div>
+              <div class="artifact-line"><div class="artifact-pill">ソース</div><div class="artifact-pill">STEP</div><div class="artifact-pill">STL</div><div class="artifact-pill">OBJ</div><div class="artifact-pill">PNG</div></div>
+              <div class="method-note">編集しやすいCAD出力が強み。STEPとメッシュ出力が通り、寸法・体積チェックも安定。</div>
+              <div class="view-strip">
+                <div class="view-tile"><img src="assets/views/cadquery_front.png" alt="CadQuery 共通仕様 正面ガイド" /><div class="view-label">共通正面</div></div>
+                <div class="view-tile"><img src="assets/views/cadquery_side.png" alt="CadQuery 共通仕様 側面ガイド" /><div class="view-label">共通側面</div></div>
+                <div class="view-tile"><img src="assets/views/cadquery_top.png" alt="CadQuery 共通仕様 上面ガイド" /><div class="view-label">共通上面</div></div>
+              </div>
+            </div>
+            <div class="main-shot"><img src="assets/screenshots/cadquery.png" alt="CadQuery 生成カップボードのスクリーンショット" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-5" class="scene method-scene">
+        <div class="botanical-grid"></div>
+        <div class="scene-content">
+          <div class="method-layout">
+            <div class="method-copy">
+              <div class="kicker">ツール2 / Python BREP</div>
+              <div class="method-title-row"><h2 class="method-title">build123d</h2><div class="method-score"><span>96</span><small>点</small></div></div>
+              <div class="artifact-line"><div class="artifact-pill">ソース</div><div class="artifact-pill">STEP</div><div class="artifact-pill">STL</div><div class="artifact-pill">OBJ</div><div class="artifact-pill">PNG</div></div>
+              <div class="method-note">CadQueryと同点トップ。OpenCascade/OCP経由でSTEP出力と寸法チェックが通りました。</div>
+              <div class="view-strip">
+                <div class="view-tile"><img src="assets/views/build123d_front.png" alt="build123d 共通仕様 正面ガイド" /><div class="view-label">共通正面</div></div>
+                <div class="view-tile"><img src="assets/views/build123d_side.png" alt="build123d 共通仕様 側面ガイド" /><div class="view-label">共通側面</div></div>
+                <div class="view-tile"><img src="assets/views/build123d_top.png" alt="build123d 共通仕様 上面ガイド" /><div class="view-label">共通上面</div></div>
+              </div>
+            </div>
+            <div class="main-shot"><img src="assets/screenshots/build123d.png" alt="build123d 生成カップボードのスクリーンショット" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-6" class="scene method-scene">
+        <div class="botanical-grid"></div>
+        <div class="scene-content">
+          <div class="method-layout">
+            <div class="method-copy">
+              <div class="kicker">ツール3 / JavaScript CSG</div>
+              <div class="method-title-row"><h2 class="method-title">JSCAD</h2><div class="method-score"><span>92</span><small>点</small></div></div>
+              <div class="artifact-line"><div class="artifact-pill">ソース</div><div class="artifact-pill off">STEP</div><div class="artifact-pill">STL</div><div class="artifact-pill">OBJ</div><div class="artifact-pill">PNG</div></div>
+              <div class="method-note">軽量で再現性が高い構成。今回のローカルCLI実行ではメッシュ中心で、STEPは出力対象外です。</div>
+              <div class="view-strip">
+                <div class="view-tile"><img src="assets/views/jscad_front.png" alt="JSCAD 共通仕様 正面ガイド" /><div class="view-label">共通正面</div></div>
+                <div class="view-tile"><img src="assets/views/jscad_side.png" alt="JSCAD 共通仕様 側面ガイド" /><div class="view-label">共通側面</div></div>
+                <div class="view-tile"><img src="assets/views/jscad_top.png" alt="JSCAD 共通仕様 上面ガイド" /><div class="view-label">共通上面</div></div>
+              </div>
+            </div>
+            <div class="main-shot"><img src="assets/screenshots/jscad.png" alt="JSCAD 生成カップボードのスクリーンショット" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-7" class="scene method-scene">
+        <div class="botanical-grid"></div>
+        <div class="scene-content">
+          <div class="method-layout">
+            <div class="method-copy">
+              <div class="kicker">ツール4 / OpenSCAD CLI</div>
+              <div class="method-title-row"><h2 class="method-title">OpenSCAD</h2><div class="method-score"><span>92</span><small>点</small></div></div>
+              <div class="artifact-line"><div class="artifact-pill">ソース</div><div class="artifact-pill off">STEP</div><div class="artifact-pill">STL</div><div class="artifact-pill">OBJ</div><div class="artifact-pill">PNG</div></div>
+              <div class="method-note">ポータブル版OpenSCAD 2021.01でSCAD、STL、OBJ、PNGを生成。今回の手順ではSTEPは未生成です。</div>
+              <div class="view-strip">
+                <div class="view-tile"><img src="assets/views/openscad_front.png" alt="OpenSCAD 共通仕様 正面ガイド" /><div class="view-label">共通正面</div></div>
+                <div class="view-tile"><img src="assets/views/openscad_side.png" alt="OpenSCAD 共通仕様 側面ガイド" /><div class="view-label">共通側面</div></div>
+                <div class="view-tile"><img src="assets/views/openscad_top.png" alt="OpenSCAD 共通仕様 上面ガイド" /><div class="view-label">共通上面</div></div>
+              </div>
+            </div>
+            <div class="main-shot"><img src="assets/screenshots/openscad.png" alt="OpenSCAD 生成カップボードのスクリーンショット" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-8" class="scene method-scene">
+        <div class="botanical-grid"></div>
+        <div class="scene-content">
+          <div class="method-layout">
+            <div class="method-copy">
+              <div class="kicker">ツール5 / ForgeCAD CLI</div>
+              <div class="method-title-row"><h2 class="method-title">ForgeCAD</h2><div class="method-score"><span>88</span><small>点</small></div></div>
+              <div class="artifact-line"><div class="artifact-pill">ソース</div><div class="artifact-pill off">STEP</div><div class="artifact-pill">STL</div><div class="artifact-pill">OBJ</div><div class="artifact-pill">PNG</div></div>
+              <div class="method-note">CLIでSTL、3MF、PNG、OBJ変換まで生成。STEPはPro制約、watertightは今回NGとして記録。</div>
+              <div class="view-strip">
+                <div class="view-tile"><img src="assets/views/forgecad_front.png" alt="ForgeCAD 共通仕様 正面ガイド" /><div class="view-label">共通正面</div></div>
+                <div class="view-tile"><img src="assets/views/forgecad_side.png" alt="ForgeCAD 共通仕様 側面ガイド" /><div class="view-label">共通側面</div></div>
+                <div class="view-tile"><img src="assets/views/forgecad_top.png" alt="ForgeCAD 共通仕様 上面ガイド" /><div class="view-label">共通上面</div></div>
+              </div>
+            </div>
+            <div class="main-shot"><img src="assets/screenshots/forgecad.png" alt="ForgeCAD 生成カップボードのスクリーンショット" /></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scene-9" class="scene">
+        <div class="botanical-grid"></div>
+        <div class="scene-content">
+          <div class="kicker">最終比較</div>
+          <h2 class="headline">CADとして再編集するならCadQuery/build123d。軽い反復ならJSCAD/OpenSCAD。ForgeCADはCLI導線が魅力だが制約も明確。</h2>
+          <div class="summary-layout">
+            <div class="comparison-bars">
+              <div class="bar-row"><div class="bar-label">CadQuery</div><div class="bar-track"><div class="bar-fill" style="width: 96%"></div></div><div class="bar-score">96</div></div>
+              <div class="bar-row"><div class="bar-label">build123d</div><div class="bar-track"><div class="bar-fill" style="width: 96%"></div></div><div class="bar-score">96</div></div>
+              <div class="bar-row"><div class="bar-label">JSCAD</div><div class="bar-track"><div class="bar-fill" style="width: 92%"></div></div><div class="bar-score">92</div></div>
+              <div class="bar-row"><div class="bar-label">OpenSCAD</div><div class="bar-track"><div class="bar-fill" style="width: 92%"></div></div><div class="bar-score">92</div></div>
+              <div class="bar-row"><div class="bar-label">ForgeCAD</div><div class="bar-track"><div class="bar-fill" style="width: 88%"></div></div><div class="bar-score">88</div></div>
+            </div>
+            <div class="summary-card">
+              <div class="kicker">実行証跡</div>
+              <div class="takeaways">
+                <div class="takeaway"><strong>画像:</strong> ベンチスクショと、共通仕様の正面・側面・上面ガイドを収録。</div>
+                <div class="takeaway"><strong>CAD出力:</strong> STEPは対応ツールのみ。STL/OBJ/PNGは全手法で比較。</div>
+                <div class="takeaway"><strong>注意:</strong> 家具安全性の検証ではありません。ForgeCAD STEPはPro制約、npm auditのmoderateは残存。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const scenes = ["#scene-1", "#scene-2", "#scene-3", "#scene-4", "#scene-5", "#scene-6", "#scene-7", "#scene-8", "#scene-9"];
+      const starts = [0, 8, 17, 27, 36, 45, 54, 63, 72];
+
+      function fromIfAny(selector, vars, t) {
+        if (document.querySelector(selector)) {
+          tl.from(selector, vars, t);
+        }
+      }
+
+      function enterScene(scene, t) {
+        fromIfAny(scene + " .kicker", { y: 22, opacity: 0, duration: 0.65, ease: "power3.out" }, t + 0.25);
+        fromIfAny(scene + " .headline, " + scene + " .method-title", { y: 42, opacity: 0, duration: 0.82, ease: "expo.out" }, t + 0.45);
+        fromIfAny(scene + " .subhead, " + scene + " .method-note", { x: -28, opacity: 0, duration: 0.7, ease: "power2.out" }, t + 0.72);
+        fromIfAny(scene + " .spec, " + scene + " .score-card, " + scene + " .panel, " + scene + " .main-shot, " + scene + " .summary-card", { y: 34, opacity: 0, scale: 0.985, duration: 0.72, stagger: 0.08, ease: "back.out(1.2)" }, t + 0.96);
+        fromIfAny(scene + " .view-tile, " + scene + " .artifact-pill, " + scene + " .bar-row, " + scene + " .tag", { y: 22, opacity: 0, duration: 0.52, stagger: 0.055, ease: "sine.out" }, t + 1.25);
+      }
+
+      function transition(fromScene, toScene, t) {
+        tl.set(toScene, { x: 0 }, t + 0.65);
+        tl.to(fromScene, { filter: "blur(22px)", scale: 1.025, duration: 0.9, ease: "sine.inOut" }, t);
+        tl.to(fromScene, { opacity: 0, duration: 0.65, ease: "sine.inOut" }, t + 0.55);
+        tl.fromTo(toScene, { opacity: 0, filter: "blur(22px)", scale: 0.985 }, { opacity: 1, filter: "blur(0px)", scale: 1, duration: 1.15, ease: "sine.inOut" }, t + 0.65);
+        tl.set(fromScene, { x: -2200, filter: "blur(0px)", scale: 1 }, t + 1.8);
+      }
+
+      enterScene("#scene-1", 0);
+      for (let i = 1; i < scenes.length; i += 1) {
+        transition(scenes[i - 1], scenes[i], starts[i] - 1.15);
+        enterScene(scenes[i], starts[i]);
+      }
+      tl.from("#brand-footer", { y: 20, opacity: 0, duration: 0.55, ease: "power2.out" }, 0.35);
+      tl.from(".leaf-a", { x: -24, y: 18, opacity: 0, duration: 0.8, ease: "sine.out" }, 0.2);
+      tl.from(".leaf-b", { x: 24, y: -18, opacity: 0, duration: 0.8, ease: "sine.out" }, 0.35);
+      tl.to(".leaf-a", { x: 10, y: -8, rotation: -12, duration: 20, repeat: 3, yoyo: true, ease: "sine.inOut" }, 1.1);
+      tl.to(".leaf-b", { x: -12, y: 9, rotation: 154, duration: 19, repeat: 3, yoyo: true, ease: "sine.inOut" }, 1.3);
+      tl.to("#root", { opacity: 0, duration: 0.9, ease: "power1.inOut" }, 80.75);
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

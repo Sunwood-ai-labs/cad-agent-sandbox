@@ -1,0 +1,17 @@
+﻿{
+  "name": "cupboard-cad-benchmark",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Free CAD-as-code benchmark for generating a cupboard model.",
+  "scripts": {
+    "prepare:jscad": "node -e \"require('fs').mkdirSync('outputs/jscad',{recursive:true})\"",
+    "generate:jscad:stl": "jscad designs/cupboard.jscad -o outputs/jscad/cupboard.stl",
+    "generate:jscad:obj": "jscad designs/cupboard.jscad -o outputs/jscad/cupboard.obj",
+    "generate:jscad": "npm run prepare:jscad && npm run generate:jscad:stl && npm run generate:jscad:obj"
+  },
+  "devDependencies": {
+    "@jscad/cli": "^2.3.0",
+    "@jscad/modeling": "^2.12.6",
+    "forgecad": "^0.8.2"
+  }
+}
