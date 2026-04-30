@@ -2,12 +2,12 @@
 
 無料でローカル実行できる CAD-as-code 系ツールを、テーマ別の `cases/` に分けて比較するための作業リポジトリです。
 
-現在の公開ケースはカップボードです。
+現在の公開ケースは次の2件です。
 
-- ケース本体: [cases/cupboard/](cases/cupboard/)
-- セットアップと使い方: [cases/cupboard/docs/SETUP_AND_USAGE.md](cases/cupboard/docs/SETUP_AND_USAGE.md)
-- ベンチマークレポート: [cases/cupboard/reports/benchmark_report.md](cases/cupboard/reports/benchmark_report.md)
-- 比較動画ソース: [cases/cupboard/videos/cupboard-cad-comparison/](cases/cupboard/videos/cupboard-cad-comparison/)
+| ケース | 内容 | レポート | 動画ソース |
+|---|---|---|---|
+| [cupboard](cases/cupboard/) | 幅900×奥行450×高さ2000mmの基本カップボード | [benchmark_report.md](cases/cupboard/reports/benchmark_report.md) | [cupboard-cad-comparison](cases/cupboard/videos/cupboard-cad-comparison/) |
+| [kitchen-trash-cupboard](cases/kitchen-trash-cupboard/) | 幅1680×奥行650×高さ1800mm、下部にゴミ箱3台を置けるキッチンカップボード | [benchmark_report.md](cases/kitchen-trash-cupboard/reports/benchmark_report.md) | [kitchen-trash-cupboard-comparison](cases/kitchen-trash-cupboard/videos/kitchen-trash-cupboard-comparison/) |
 
 ## ケース構成
 
@@ -32,10 +32,12 @@ cases/<slug>/
 ```powershell
 cd <repo-root>
 uv sync --python 3.11
-cd cases\cupboard
+cd cases\<slug>
 npm install
 powershell -ExecutionPolicy Bypass -File scripts\install_openscad.ps1
 uv run scripts\run_all.py
 ```
+
+例: `cases\cupboard` または `cases\kitchen-trash-cupboard` を指定します。
 
 詳細な運用ルールは [docs/CASE_LAYOUT.md](docs/CASE_LAYOUT.md) にもまとめています。

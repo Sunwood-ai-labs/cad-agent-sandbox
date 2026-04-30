@@ -1,0 +1,66 @@
+{
+  "methods": [
+    {
+      "id": "cadquery",
+      "label": "CadQuery",
+      "score": "100",
+      "step": "True",
+      "stl": "True",
+      "obj": "True",
+      "png": "True",
+      "bbox": "True",
+      "volume": "True",
+      "watertight": "True"
+    },
+    {
+      "id": "build123d",
+      "label": "build123d",
+      "score": "100",
+      "step": "True",
+      "stl": "True",
+      "obj": "True",
+      "png": "True",
+      "bbox": "True",
+      "volume": "True",
+      "watertight": "True"
+    },
+    {
+      "id": "jscad",
+      "label": "JSCAD",
+      "score": "98",
+      "step": "False",
+      "stl": "True",
+      "obj": "True",
+      "png": "True",
+      "bbox": "True",
+      "volume": "True",
+      "watertight": "True"
+    },
+    {
+      "id": "openscad",
+      "label": "OpenSCAD",
+      "score": "98",
+      "step": "False",
+      "stl": "True",
+      "obj": "True",
+      "png": "True",
+      "bbox": "True",
+      "volume": "True",
+      "watertight": "True"
+    },
+    {
+      "id": "forgecad",
+      "label": "ForgeCAD",
+      "score": "94",
+      "step": "False",
+      "stl": "True",
+      "obj": "True",
+      "png": "True",
+      "bbox": "True",
+      "volume": "True",
+      "watertight": "False"
+    }
+  ],
+  "icon_url": "https://pbs.twimg.com/profile_images/1599014676909522944/UNh8fZEr_400x400.png",
+  "footer": "Maki@Sunwood AI Labs."
+}

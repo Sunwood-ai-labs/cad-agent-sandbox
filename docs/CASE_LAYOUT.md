@@ -20,4 +20,9 @@
 - `cases/*/tools/`
 - `cases/*/node_modules/`
 
-新しいケースを追加する時は、まず既存の [cases/cupboard/](../cases/cupboard/) を複製し、README と docs のテーマ名、仕様、出力先、動画タイトルを更新します。
+現在のケース:
+
+- [cases/cupboard/](../cases/cupboard/): 基本カップボード
+- [cases/kitchen-trash-cupboard/](../cases/kitchen-trash-cupboard/): ゴミ箱3台対応キッチンカップボード
+
+新しいケースを追加する時は、まず既存ケースを複製し、README と docs のテーマ名、仕様、出力先、動画タイトルを更新します。`videos/<slug>-comparison/` の slug もケース固有にしておくと、公開導線が混ざりにくくなります。
