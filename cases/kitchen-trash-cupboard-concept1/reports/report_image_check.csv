@@ -10,6 +10,7 @@ cases\kitchen-trash-cupboard-concept1\reports\benchmark_report.md,screenshots/bu
 cases\kitchen-trash-cupboard-concept1\reports\benchmark_report.md,screenshots/jscad.png,ok,1400,1200,True
 cases\kitchen-trash-cupboard-concept1\reports\benchmark_report.md,screenshots/openscad.png,ok,1400,1200,True
 cases\kitchen-trash-cupboard-concept1\reports\benchmark_report.md,screenshots/forgecad.png,ok,1400,1200,True
+cases\kitchen-trash-cupboard-concept1\README.md,concepts/exports/concept_sheet_01_family_unit.png,ok,1536,1024,True
 cases\kitchen-trash-cupboard-concept1\README.md,reports/screenshots/cadquery.png,ok,1400,1200,True
 cases\kitchen-trash-cupboard-concept1\README.md,reports/screenshots/build123d.png,ok,1400,1200,True
 cases\kitchen-trash-cupboard-concept1\README.md,reports/screenshots/jscad.png,ok,1400,1200,True

@@ -8,6 +8,10 @@ This case generates the attached "morning workflow family unit" kitchen cupboard
 - Target envelope: `W1680 x D650 x H1800`
 - Toolchains: CadQuery, build123d, JSCAD, OpenSCAD, ForgeCAD
 
+## Attached Concept Image
+
+![Attached concept sheet: morning workflow family unit](concepts/exports/concept_sheet_01_family_unit.png)
+
 ## Modeled Details
 
 The shared specification in [cupboard_benchmark/spec.py](cupboard_benchmark/spec.py) defines 150 box-based parts:
