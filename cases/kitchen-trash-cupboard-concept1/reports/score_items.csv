@@ -1,0 +1,121 @@
+method,category,item,points,max_points,status,evidence
+CadQuery,concept_layout,overall W1680 D650 H1800 envelope,6,6,pass,"measured bbox=[1680.0, 650.0, 1800.0], expected=[1680.0, 650.0, 1800.0], tolerance=1mm"
+CadQuery,concept_layout,D290 upper storage set back from front,5,5,pass,"upper_front_y=360.0, upper_door_y=344.0, upper_back_y=644.0"
+CadQuery,concept_layout,counter H900 and D450 work deck,4,4,pass,"counter_top_height=900.0, counter_depth=450.0"
+CadQuery,concept_layout,three open trash bays with 45L-class clearance,5,5,pass,"columns=3, clear_each=520.0x600.0x740.0"
+CadQuery,concept_layout,rear pegboard position above counter,3,3,pass,"pegboard_y=644.0, peg_holes=75"
+CadQuery,concept_layout,no positive-volume part overlaps,2,2,pass,positive_overlap_pairs=0
+CadQuery,visual_detail,upper two-door face and internal shelves,3,4,partial,"two slab doors and shelves exist, but hinges and pull hardware are simplified"
+CadQuery,visual_detail,"pegboard, outlet, slide cover, and towel zone",4,6,partial,"peg_holes=75, outlet_parts=4, towel_parts=5"
+CadQuery,visual_detail,counter appliances and small morning objects,3,7,partial,"toaster/kettle/mug/glass/plant placeholders exist, but curved bodies are box approximations"
+CadQuery,visual_detail,"three colored bins, lids, and front labels",4,6,partial,"green/blue/gray bins and symbolic labels exist, but printed Japanese label graphics are not reproduced"
+CadQuery,visual_detail,materials and color palette,3,5,partial,"rendered screenshot metrics: unique_color_sample=1753, nonwhite_ratio=0.4037; flat colors are present but wood grain/fabric texture are not modeled"
+CadQuery,visual_detail,"fine hardware, labels, curves, and fabric realism",0,5,fail,"box-primitive CAD does not reproduce rounded appliances, cloth folds, exact icons, or detailed metal fittings"
+CadQuery,visual_detail,overall catalog silhouette readability,2,2,pass,"rendered screenshot metrics: edge_density=0.0689, nonwhite_ratio=0.4037; silhouette is readable but still simplified"
+CadQuery,cad_output,source file and manifest reproducibility,5,5,pass,"source=True, manifest=True"
+CadQuery,cad_output,mesh exports,5,5,pass,"stl=True, obj=True"
+CadQuery,cad_output,STEP/native exchange output,5,5,pass,step=True
+CadQuery,cad_output,measured mesh bbox and volume checks,5,5,pass,"bbox_pass=True, volume_pass=True"
+CadQuery,cad_output,watertight mesh,3,3,pass,watertight_any=True
+CadQuery,cad_output,measurement completed without parser error,2,2,pass,"mesh_checks=2, measurement_error=None"
+CadQuery,evidence,attached concept image is present and nonblank,3,3,pass,concepts\exports\concept_sheet_01_family_unit.png
+CadQuery,evidence,side-by-side concept/CAD comparison image,3,3,pass,reports\concept_vs_cadquery.png
+CadQuery,evidence,candidate screenshot is present and nonblank,3,3,pass,reports\screenshots\cadquery.png
+CadQuery,evidence,itemized scoring evidence exists before summary export,3,3,pass,22 method-specific items prepared before score_items.csv export
+CadQuery,evidence,limitations are represented as scored visual penalties,3,3,pass,6 visual_detail penalties/partials recorded; non-scored limits are separated in reports/non_scored_limits.csv
+build123d,concept_layout,overall W1680 D650 H1800 envelope,6,6,pass,"measured bbox=[1680.0, 650.0, 1800.0], expected=[1680.0, 650.0, 1800.0], tolerance=1mm"
+build123d,concept_layout,D290 upper storage set back from front,5,5,pass,"upper_front_y=360.0, upper_door_y=344.0, upper_back_y=644.0"
+build123d,concept_layout,counter H900 and D450 work deck,4,4,pass,"counter_top_height=900.0, counter_depth=450.0"
+build123d,concept_layout,three open trash bays with 45L-class clearance,5,5,pass,"columns=3, clear_each=520.0x600.0x740.0"
+build123d,concept_layout,rear pegboard position above counter,3,3,pass,"pegboard_y=644.0, peg_holes=75"
+build123d,concept_layout,no positive-volume part overlaps,2,2,pass,positive_overlap_pairs=0
+build123d,visual_detail,upper two-door face and internal shelves,3,4,partial,"two slab doors and shelves exist, but hinges and pull hardware are simplified"
+build123d,visual_detail,"pegboard, outlet, slide cover, and towel zone",4,6,partial,"peg_holes=75, outlet_parts=4, towel_parts=5"
+build123d,visual_detail,counter appliances and small morning objects,3,7,partial,"toaster/kettle/mug/glass/plant placeholders exist, but curved bodies are box approximations"
+build123d,visual_detail,"three colored bins, lids, and front labels",4,6,partial,"green/blue/gray bins and symbolic labels exist, but printed Japanese label graphics are not reproduced"
+build123d,visual_detail,materials and color palette,3,5,partial,"rendered screenshot metrics: unique_color_sample=1751, nonwhite_ratio=0.4038; flat colors are present but wood grain/fabric texture are not modeled"
+build123d,visual_detail,"fine hardware, labels, curves, and fabric realism",0,5,fail,"box-primitive CAD does not reproduce rounded appliances, cloth folds, exact icons, or detailed metal fittings"
+build123d,visual_detail,overall catalog silhouette readability,2,2,pass,"rendered screenshot metrics: edge_density=0.069, nonwhite_ratio=0.4038; silhouette is readable but still simplified"
+build123d,cad_output,source file and manifest reproducibility,5,5,pass,"source=True, manifest=True"
+build123d,cad_output,mesh exports,5,5,pass,"stl=True, obj=True"
+build123d,cad_output,STEP/native exchange output,5,5,pass,step=True
+build123d,cad_output,measured mesh bbox and volume checks,5,5,pass,"bbox_pass=True, volume_pass=True"
+build123d,cad_output,watertight mesh,3,3,pass,watertight_any=True
+build123d,cad_output,measurement completed without parser error,2,2,pass,"mesh_checks=2, measurement_error=None"
+build123d,evidence,attached concept image is present and nonblank,3,3,pass,concepts\exports\concept_sheet_01_family_unit.png
+build123d,evidence,side-by-side concept/CAD comparison image,3,3,pass,reports\concept_vs_build123d.png
+build123d,evidence,candidate screenshot is present and nonblank,3,3,pass,reports\screenshots\build123d.png
+build123d,evidence,itemized scoring evidence exists before summary export,3,3,pass,22 method-specific items prepared before score_items.csv export
+build123d,evidence,limitations are represented as scored visual penalties,3,3,pass,6 visual_detail penalties/partials recorded; non-scored limits are separated in reports/non_scored_limits.csv
+JSCAD,concept_layout,overall W1680 D650 H1800 envelope,6,6,pass,"measured bbox=[1680.001, 649.993, 1800.005], expected=[1680.0, 650.0, 1800.0], tolerance=1mm"
+JSCAD,concept_layout,D290 upper storage set back from front,5,5,pass,"upper_front_y=360.0, upper_door_y=344.0, upper_back_y=644.0"
+JSCAD,concept_layout,counter H900 and D450 work deck,4,4,pass,"counter_top_height=900.0, counter_depth=450.0"
+JSCAD,concept_layout,three open trash bays with 45L-class clearance,5,5,pass,"columns=3, clear_each=520.0x600.0x740.0"
+JSCAD,concept_layout,rear pegboard position above counter,3,3,pass,"pegboard_y=644.0, peg_holes=75"
+JSCAD,concept_layout,no positive-volume part overlaps,2,2,pass,positive_overlap_pairs=0
+JSCAD,visual_detail,upper two-door face and internal shelves,3,4,partial,"two slab doors and shelves exist, but hinges and pull hardware are simplified"
+JSCAD,visual_detail,"pegboard, outlet, slide cover, and towel zone",4,6,partial,"peg_holes=75, outlet_parts=4, towel_parts=5"
+JSCAD,visual_detail,counter appliances and small morning objects,3,7,partial,"toaster/kettle/mug/glass/plant placeholders exist, but curved bodies are box approximations"
+JSCAD,visual_detail,"three colored bins, lids, and front labels",4,6,partial,"green/blue/gray bins and symbolic labels exist, but printed Japanese label graphics are not reproduced"
+JSCAD,visual_detail,materials and color palette,3,5,partial,"rendered screenshot metrics: unique_color_sample=1751, nonwhite_ratio=0.4037; flat colors are present but wood grain/fabric texture are not modeled"
+JSCAD,visual_detail,"fine hardware, labels, curves, and fabric realism",0,5,fail,"box-primitive CAD does not reproduce rounded appliances, cloth folds, exact icons, or detailed metal fittings"
+JSCAD,visual_detail,overall catalog silhouette readability,2,2,pass,"rendered screenshot metrics: edge_density=0.0688, nonwhite_ratio=0.4037; silhouette is readable but still simplified"
+JSCAD,cad_output,source file and manifest reproducibility,5,5,pass,"source=True, manifest=True"
+JSCAD,cad_output,mesh exports,5,5,pass,"stl=True, obj=True"
+JSCAD,cad_output,STEP/native exchange output,0,5,fail,step=False
+JSCAD,cad_output,measured mesh bbox and volume checks,5,5,pass,"bbox_pass=True, volume_pass=True"
+JSCAD,cad_output,watertight mesh,0,3,fail,watertight_any=False
+JSCAD,cad_output,measurement completed without parser error,2,2,pass,"mesh_checks=2, measurement_error=None"
+JSCAD,evidence,attached concept image is present and nonblank,3,3,pass,concepts\exports\concept_sheet_01_family_unit.png
+JSCAD,evidence,side-by-side concept/CAD comparison image,3,3,pass,reports\concept_vs_jscad.png
+JSCAD,evidence,candidate screenshot is present and nonblank,3,3,pass,reports\screenshots\jscad.png
+JSCAD,evidence,itemized scoring evidence exists before summary export,3,3,pass,22 method-specific items prepared before score_items.csv export
+JSCAD,evidence,limitations are represented as scored visual penalties,3,3,pass,6 visual_detail penalties/partials recorded; non-scored limits are separated in reports/non_scored_limits.csv
+OpenSCAD,concept_layout,overall W1680 D650 H1800 envelope,6,6,pass,"measured bbox=[1680.0, 650.0, 1800.0], expected=[1680.0, 650.0, 1800.0], tolerance=1mm"
+OpenSCAD,concept_layout,D290 upper storage set back from front,5,5,pass,"upper_front_y=360.0, upper_door_y=344.0, upper_back_y=644.0"
+OpenSCAD,concept_layout,counter H900 and D450 work deck,4,4,pass,"counter_top_height=900.0, counter_depth=450.0"
+OpenSCAD,concept_layout,three open trash bays with 45L-class clearance,5,5,pass,"columns=3, clear_each=520.0x600.0x740.0"
+OpenSCAD,concept_layout,rear pegboard position above counter,3,3,pass,"pegboard_y=644.0, peg_holes=75"
+OpenSCAD,concept_layout,no positive-volume part overlaps,2,2,pass,positive_overlap_pairs=0
+OpenSCAD,visual_detail,upper two-door face and internal shelves,3,4,partial,"two slab doors and shelves exist, but hinges and pull hardware are simplified"
+OpenSCAD,visual_detail,"pegboard, outlet, slide cover, and towel zone",4,6,partial,"peg_holes=75, outlet_parts=4, towel_parts=5"
+OpenSCAD,visual_detail,counter appliances and small morning objects,3,7,partial,"toaster/kettle/mug/glass/plant placeholders exist, but curved bodies are box approximations"
+OpenSCAD,visual_detail,"three colored bins, lids, and front labels",4,6,partial,"green/blue/gray bins and symbolic labels exist, but printed Japanese label graphics are not reproduced"
+OpenSCAD,visual_detail,materials and color palette,3,5,partial,"rendered screenshot metrics: unique_color_sample=1629, nonwhite_ratio=0.3941; flat colors are present but wood grain/fabric texture are not modeled"
+OpenSCAD,visual_detail,"fine hardware, labels, curves, and fabric realism",0,5,fail,"box-primitive CAD does not reproduce rounded appliances, cloth folds, exact icons, or detailed metal fittings"
+OpenSCAD,visual_detail,overall catalog silhouette readability,2,2,pass,"rendered screenshot metrics: edge_density=0.0705, nonwhite_ratio=0.3941; silhouette is readable but still simplified"
+OpenSCAD,cad_output,source file and manifest reproducibility,5,5,pass,"source=True, manifest=True"
+OpenSCAD,cad_output,mesh exports,5,5,pass,"stl=True, obj=True"
+OpenSCAD,cad_output,STEP/native exchange output,0,5,fail,step=False
+OpenSCAD,cad_output,measured mesh bbox and volume checks,5,5,pass,"bbox_pass=True, volume_pass=True"
+OpenSCAD,cad_output,watertight mesh,0,3,fail,watertight_any=False
+OpenSCAD,cad_output,measurement completed without parser error,2,2,pass,"mesh_checks=2, measurement_error=None"
+OpenSCAD,evidence,attached concept image is present and nonblank,3,3,pass,concepts\exports\concept_sheet_01_family_unit.png
+OpenSCAD,evidence,side-by-side concept/CAD comparison image,3,3,pass,reports\concept_vs_openscad.png
+OpenSCAD,evidence,candidate screenshot is present and nonblank,3,3,pass,reports\screenshots\openscad.png
+OpenSCAD,evidence,itemized scoring evidence exists before summary export,3,3,pass,22 method-specific items prepared before score_items.csv export
+OpenSCAD,evidence,limitations are represented as scored visual penalties,3,3,pass,6 visual_detail penalties/partials recorded; non-scored limits are separated in reports/non_scored_limits.csv
+ForgeCAD,concept_layout,overall W1680 D650 H1800 envelope,6,6,pass,"measured bbox=[1680.0, 650.0, 1800.0], expected=[1680.0, 650.0, 1800.0], tolerance=1mm"
+ForgeCAD,concept_layout,D290 upper storage set back from front,5,5,pass,"upper_front_y=360.0, upper_door_y=344.0, upper_back_y=644.0"
+ForgeCAD,concept_layout,counter H900 and D450 work deck,4,4,pass,"counter_top_height=900.0, counter_depth=450.0"
+ForgeCAD,concept_layout,three open trash bays with 45L-class clearance,5,5,pass,"columns=3, clear_each=520.0x600.0x740.0"
+ForgeCAD,concept_layout,rear pegboard position above counter,3,3,pass,"pegboard_y=644.0, peg_holes=75"
+ForgeCAD,concept_layout,no positive-volume part overlaps,2,2,pass,positive_overlap_pairs=0
+ForgeCAD,visual_detail,upper two-door face and internal shelves,3,4,partial,"two slab doors and shelves exist, but hinges and pull hardware are simplified"
+ForgeCAD,visual_detail,"pegboard, outlet, slide cover, and towel zone",4,6,partial,"peg_holes=75, outlet_parts=4, towel_parts=5"
+ForgeCAD,visual_detail,counter appliances and small morning objects,3,7,partial,"toaster/kettle/mug/glass/plant placeholders exist, but curved bodies are box approximations"
+ForgeCAD,visual_detail,"three colored bins, lids, and front labels",4,6,partial,"green/blue/gray bins and symbolic labels exist, but printed Japanese label graphics are not reproduced"
+ForgeCAD,visual_detail,materials and color palette,3,5,partial,"rendered screenshot metrics: unique_color_sample=1752, nonwhite_ratio=0.4038; flat colors are present but wood grain/fabric texture are not modeled"
+ForgeCAD,visual_detail,"fine hardware, labels, curves, and fabric realism",0,5,fail,"box-primitive CAD does not reproduce rounded appliances, cloth folds, exact icons, or detailed metal fittings"
+ForgeCAD,visual_detail,overall catalog silhouette readability,2,2,pass,"rendered screenshot metrics: edge_density=0.069, nonwhite_ratio=0.4038; silhouette is readable but still simplified"
+ForgeCAD,cad_output,source file and manifest reproducibility,5,5,pass,"source=True, manifest=True"
+ForgeCAD,cad_output,mesh exports,5,5,pass,"stl=True, obj=True"
+ForgeCAD,cad_output,STEP/native exchange output,0,5,fail,step=False
+ForgeCAD,cad_output,measured mesh bbox and volume checks,5,5,pass,"bbox_pass=True, volume_pass=True"
+ForgeCAD,cad_output,watertight mesh,0,3,fail,watertight_any=False
+ForgeCAD,cad_output,measurement completed without parser error,2,2,pass,"mesh_checks=2, measurement_error=None"
+ForgeCAD,evidence,attached concept image is present and nonblank,3,3,pass,concepts\exports\concept_sheet_01_family_unit.png
+ForgeCAD,evidence,side-by-side concept/CAD comparison image,3,3,pass,reports\concept_vs_forgecad.png
+ForgeCAD,evidence,candidate screenshot is present and nonblank,3,3,pass,reports\screenshots\forgecad.png
+ForgeCAD,evidence,itemized scoring evidence exists before summary export,3,3,pass,22 method-specific items prepared before score_items.csv export
+ForgeCAD,evidence,limitations are represented as scored visual penalties,3,3,pass,6 visual_detail penalties/partials recorded; non-scored limits are separated in reports/non_scored_limits.csv

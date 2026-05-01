@@ -1,0 +1,12 @@
+method,label,path,exists,width,height,nonblank,nonwhite_ratio,edge_density,unique_color_sample,sha256_12
+concept,concept,concepts\exports\concept_sheet_01_family_unit.png,True,1536,1024,True,0.3934,0.161,2245,1ecd1678cbc9
+cadquery,screenshot,reports\screenshots\cadquery.png,True,1400,1200,True,0.4037,0.0689,1753,5bdb413ea729
+cadquery,concept_comparison,reports\concept_vs_cadquery.png,True,2027,880,True,0.3738,0.137,2131,68a6543b4102
+build123d,screenshot,reports\screenshots\build123d.png,True,1400,1200,True,0.4038,0.069,1751,b023f6012f44
+build123d,concept_comparison,reports\concept_vs_build123d.png,True,2027,880,True,0.3739,0.137,2130,c0bdb15ce4ec
+jscad,screenshot,reports\screenshots\jscad.png,True,1400,1200,True,0.4037,0.0688,1751,c5974558eace
+jscad,concept_comparison,reports\concept_vs_jscad.png,True,2027,880,True,0.3736,0.1369,2129,2dcfdf2d1530
+openscad,screenshot,reports\screenshots\openscad.png,True,1400,1200,True,0.3941,0.0705,1629,dd6c6f1d957e
+openscad,concept_comparison,reports\concept_vs_openscad.png,True,2027,880,True,0.3679,0.1414,2163,84873f9f0595
+forgecad,screenshot,reports\screenshots\forgecad.png,True,1400,1200,True,0.4038,0.069,1752,389a5d53f9f9
+forgecad,concept_comparison,reports\concept_vs_forgecad.png,True,2027,880,True,0.3739,0.1371,2131,8ed80c2fea94

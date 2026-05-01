@@ -39,10 +39,21 @@ cases/*/reports/*
 !cases/*/reports/
 !cases/*/reports/benchmark_report.md
 !cases/*/reports/measurements.csv
+!cases/kitchen-trash-cupboard-concept1/reports/run_all_last_result.csv
+!cases/kitchen-trash-cupboard-concept1/reports/screenshot_inventory.csv
+!cases/kitchen-trash-cupboard-concept1/reports/score_breakdown.csv
+!cases/kitchen-trash-cupboard-concept1/reports/score_items.csv
+!cases/kitchen-trash-cupboard-concept1/reports/output_file_fingerprints.csv
+!cases/kitchen-trash-cupboard-concept1/reports/image_metrics.csv
+!cases/kitchen-trash-cupboard-concept1/reports/non_scored_limits.csv
 !cases/*/reports/npm_audit_summary.csv
 !cases/*/reports/openscad_step_probe.csv
 !cases/*/reports/step_imports.csv
 !cases/*/reports/tool_landscape.md
+!cases/kitchen-trash-cupboard-concept1/reports/report_image_check.csv
+!cases/kitchen-trash-cupboard-concept1/reports/markdown_link_check.csv
+!cases/kitchen-trash-cupboard-concept1/reports/encoding_check.csv
+!cases/kitchen-trash-cupboard-concept1/reports/concept_vs_*.png
 !cases/*/reports/screenshots/
 !cases/*/reports/screenshots/*.png
 

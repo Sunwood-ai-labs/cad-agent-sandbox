@@ -1,0 +1,5 @@
+item,reason,impact_on_score,status
+Structural strength and anti-tip safety,"No material, fastener, wall-fix, or load simulation model is present.",Excluded from score; report states this is not manufacturing sign-off.,not_scored
+Real product fit and door/hardware procurement,"No vendor bins, hinges, outlets, or metal hardware catalogs are bound to the CAD.",Excluded from score; CAD/output category only checks generated files and mesh quality.,not_scored
+Photoreal texture and semantic image similarity,"No texture map, trained visual model, or annotated concept mask is available for reliable semantic similarity scoring.",Visual/detail category uses explicit penalties and image metrics instead of claiming photoreal matching.,partially_scored
+Human workflow ergonomics,"No user reach, clearance, or time-motion simulation is implemented.",Excluded from score; concept layout checks only static geometry.,not_scored

@@ -1,0 +1,6 @@
+method,path,status,source
+cadquery,reports\screenshots\cadquery.png,ok,outputs\cadquery\cupboard_preview.png
+build123d,reports\screenshots\build123d.png,ok,outputs\build123d\cupboard_preview.png
+jscad,reports\screenshots\jscad.png,ok,outputs\jscad\cupboard_preview.png
+openscad,reports\screenshots\openscad.png,ok,outputs\openscad\cupboard_screenshot.png
+forgecad,reports\screenshots\forgecad.png,ok,outputs\forgecad\cupboard_preview.png
