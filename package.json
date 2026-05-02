@@ -1,0 +1,17 @@
+{
+  "name": "cad-agent-sandbox",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Windows-first CAD-as-code benchmark workspace and documentation.",
+  "workspaces": [
+    "docs"
+  ],
+  "scripts": {
+    "docs:dev": "npm --workspace cad-agent-sandbox-docs run docs:dev",
+    "docs:build": "npm --workspace cad-agent-sandbox-docs run docs:build",
+    "docs:preview": "npm --workspace cad-agent-sandbox-docs run docs:preview",
+    "check:encoding": "uv run cases/cupboard/scripts/verify_text_encoding.py",
+    "check:links": "uv run scripts/verify_tracked_markdown_links.py",
+    "check": "npm run check:encoding && npm run check:links && npm run docs:build"
+  }
+}

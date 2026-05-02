@@ -59,6 +59,9 @@ cases/*/reports/*
 
 # Temporary probe frames, rendered video, and generated render work caches
 .tmp_frames_probe/
+.tmp_markdown_link_check.csv
+.tmp_docs_preview*
+docs/.vitepress/dist/
 videos/cupboard-cad-comparison/.hyperframes/
 videos/cupboard-cad-comparison/renders/
 videos/cupboard-cad-comparison/qa_frames/

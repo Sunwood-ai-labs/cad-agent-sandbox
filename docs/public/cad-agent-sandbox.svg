@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">CAD Agent Sandbox</title>
+  <desc id="desc">Flat geometric cabinet and coordinate mark for a CAD benchmark repository.</desc>
+  <rect width="240" height="240" rx="48" fill="#eef2ff"/>
+  <path d="M52 184h136" stroke="#334155" stroke-width="10" stroke-linecap="round"/>
+  <path d="M72 68h96v116H72z" fill="#ffffff" stroke="#334155" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M120 70v112M74 120h92" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="106" cy="148" r="5" fill="#2563eb"/>
+  <circle cx="134" cy="148" r="5" fill="#2563eb"/>
+  <path d="M166 54l22-22M188 32v42M188 32h-42" stroke="#0f766e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54 54l24-24 24 24" stroke="#7c3aed" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M78 30v46" stroke="#7c3aed" stroke-width="10" stroke-linecap="round"/>
+</svg>
