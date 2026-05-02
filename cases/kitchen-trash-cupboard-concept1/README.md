@@ -53,6 +53,8 @@ powershell -ExecutionPolicy Bypass -File scripts\install_openscad.ps1
 - Non-scored limits: [reports/non_scored_limits.csv](reports/non_scored_limits.csv)
 - Run status: [reports/run_all_last_result.csv](reports/run_all_last_result.csv)
 - Screenshots: [reports/screenshots/](reports/screenshots/)
+- Video source: [videos/kitchen-trash-cupboard-concept1-comparison/](videos/kitchen-trash-cupboard-concept1-comparison/)
+- Local rendered MP4: `videos\kitchen-trash-cupboard-concept1-comparison\renders\kitchen-trash-cupboard-concept1-comparison.mp4`
 - CAD outputs: `outputs\cadquery`, `outputs\build123d`, `outputs\jscad`, `outputs\openscad`, `outputs\forgecad`
 
 ## Current Verification

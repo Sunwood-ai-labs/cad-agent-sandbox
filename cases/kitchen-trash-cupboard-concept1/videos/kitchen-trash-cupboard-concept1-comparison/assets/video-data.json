@@ -1,0 +1,78 @@
+{
+  "case": {
+    "id": "kitchen-trash-cupboard-concept1",
+    "title": "朝活ファミリーの連携ユニット",
+    "envelope": "W1680 x D650 x H1800 mm",
+    "parts": "150 box-based parts",
+    "referencePolicy": "cases/kitchen-trash-cupboard is reference-only"
+  },
+  "rubric": [
+    { "label": "layout / dimensions", "points": "25" },
+    { "label": "visual / detail fidelity", "points": "35" },
+    { "label": "CAD output quality", "points": "25" },
+    { "label": "evidence / verification", "points": "15" }
+  ],
+  "methods": [
+    {
+      "id": "cadquery",
+      "label": "CadQuery",
+      "score": "84.0",
+      "grade": "B",
+      "layout": "25.0",
+      "visual": "19.0",
+      "cad": "25.0",
+      "evidence": "15.0",
+      "step": true,
+      "note": "STEP/STL/OBJ/PNG generated. Detail score remains limited by box-primitive realism."
+    },
+    {
+      "id": "build123d",
+      "label": "build123d",
+      "score": "84.0",
+      "grade": "B",
+      "layout": "25.0",
+      "visual": "19.0",
+      "cad": "25.0",
+      "evidence": "15.0",
+      "step": true,
+      "note": "STEP/STL/OBJ/PNG generated. Same strict visual penalties as CadQuery."
+    },
+    {
+      "id": "jscad",
+      "label": "JSCAD",
+      "score": "76.0",
+      "grade": "C",
+      "layout": "25.0",
+      "visual": "19.0",
+      "cad": "17.0",
+      "evidence": "15.0",
+      "step": false,
+      "note": "Mesh-first local run. STEP/native exchange and watertight evidence reduce the score."
+    },
+    {
+      "id": "openscad",
+      "label": "OpenSCAD",
+      "score": "76.0",
+      "grade": "C",
+      "layout": "25.0",
+      "visual": "19.0",
+      "cad": "17.0",
+      "evidence": "15.0",
+      "step": false,
+      "note": "STL/OBJ/PNG generated. OpenSCAD 2021.01 did not produce STEP here."
+    },
+    {
+      "id": "forgecad",
+      "label": "ForgeCAD",
+      "score": "76.0",
+      "grade": "C",
+      "layout": "25.0",
+      "visual": "19.0",
+      "cad": "17.0",
+      "evidence": "15.0",
+      "step": false,
+      "note": "STL/3MF/OBJ/PNG path recorded. STEP requires Pro in this local CLI."
+    }
+  ],
+  "footer": "Maki@Sunwood AI Labs."
+}

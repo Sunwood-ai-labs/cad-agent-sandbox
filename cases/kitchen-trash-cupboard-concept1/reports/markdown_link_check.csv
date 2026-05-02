@@ -88,6 +88,7 @@ cases\kitchen-trash-cupboard-concept1\README.md,reports/image_metrics.csv,ok,cas
 cases\kitchen-trash-cupboard-concept1\README.md,reports/non_scored_limits.csv,ok,cases\kitchen-trash-cupboard-concept1\reports\non_scored_limits.csv
 cases\kitchen-trash-cupboard-concept1\README.md,reports/run_all_last_result.csv,ok,cases\kitchen-trash-cupboard-concept1\reports\run_all_last_result.csv
 cases\kitchen-trash-cupboard-concept1\README.md,reports/screenshots/,ok,cases\kitchen-trash-cupboard-concept1\reports\screenshots
+cases\kitchen-trash-cupboard-concept1\README.md,videos/kitchen-trash-cupboard-concept1-comparison/,ok,cases\kitchen-trash-cupboard-concept1\videos\kitchen-trash-cupboard-concept1-comparison
 cases\kitchen-trash-cupboard-concept1\README.md,reports/openscad_step_probe.csv,ok,cases\kitchen-trash-cupboard-concept1\reports\openscad_step_probe.csv
 cases\kitchen-trash-cupboard-concept1\README.md,reports/npm_audit_summary.csv,ok,cases\kitchen-trash-cupboard-concept1\reports\npm_audit_summary.csv
 cases\kitchen-trash-cupboard-concept1\reports\benchmark_report.md,score_items.csv,ok,cases\kitchen-trash-cupboard-concept1\reports\score_items.csv
