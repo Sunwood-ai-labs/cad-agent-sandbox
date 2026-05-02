@@ -26,6 +26,8 @@ The shared specification in [cupboard_benchmark/spec.py](cupboard_benchmark/spec
 
 The model is a visual/CAD generation benchmark, not a structural manufacturing sign-off.
 
+The concept1 deliverables were adjusted through an explicit feedback loop against the attached concept sheet: compare generated outputs to the sheet, identify mismatches in layout/detail/scoring, update the model/report/video, and re-verify with screenshots, concept-vs comparison images, and QA frames.
+
 ## Run
 
 ```powershell

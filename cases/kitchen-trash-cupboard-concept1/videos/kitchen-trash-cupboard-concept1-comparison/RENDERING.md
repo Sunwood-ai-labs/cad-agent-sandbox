@@ -1,6 +1,7 @@
 # Kitchen Trash Cupboard Concept 1 Video Rendering
 
 This HyperFrames project regenerates the concept1 comparison video with the corrected strict scoring and the attached concept sheet image included as visible evidence.
+It also states that the outputs were iteratively adjusted through a concept-sheet feedback loop: concept sheet, generated artifacts, side-by-side comparison, correction, and re-verification.
 
 ## Source Scope
 
@@ -9,6 +10,7 @@ This HyperFrames project regenerates the concept1 comparison video with the corr
 - Reference-only case: `cases\kitchen-trash-cupboard`
 - Concept image included: `assets\concept\concept_sheet_01_family_unit.png`
 - Strict score data: `assets\video-data.json`
+- Feedback loop evidence: concept sheet, generated screenshots, `assets\comparisons\concept_vs_*.png`, corrected score text, side-view checks, and QA frames.
 
 ## Render Commands
 
@@ -27,8 +29,8 @@ npx hyperframes render --output renders\kitchen-trash-cupboard-concept1-comparis
 - Frames: `1920`
 - Resolution: `1920 x 1080`
 - Frame rate: `30 fps`
-- Size: `9536236` bytes
-- SHA256: `23B748EA6A0438099160EA9D62B49F11BC19D294FFC6ACFEBE44E0370F06309D`
+- Size: `9672822` bytes
+- SHA256: `43D092244E3AAD2C5EEF7888717BDF023A121099715A3AA67E64B86035C5B982`
 - Validation: `npx hyperframes validate` passed with no console errors and 74 text elements passing WCAG AA.
 - Layout inspection: `npx hyperframes inspect --samples 14` passed with 0 layout issues.
 - Lint: 0 errors, 1 warning for single-file composition size.
