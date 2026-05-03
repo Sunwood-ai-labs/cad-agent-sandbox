@@ -6,7 +6,7 @@ hero:
   text: ローカル CAD-as-code ベンチマーク集。
   tagline: 同じ家具仕様から CadQuery、build123d、JSCAD、OpenSCAD、ForgeCAD CLI を比較します。
   image:
-    src: /cad-agent-sandbox.svg
+    src: /cad-agent-sandbox.png
     alt: CAD Agent Sandbox
   actions:
     - theme: brand

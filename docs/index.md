@@ -6,7 +6,7 @@ hero:
   text: Local CAD-as-code benchmark cases.
   tagline: Compare CadQuery, build123d, JSCAD, OpenSCAD, and ForgeCAD CLI from repeatable furniture specs.
   image:
-    src: /cad-agent-sandbox.svg
+    src: /cad-agent-sandbox.png
     alt: CAD Agent Sandbox
   actions:
     - theme: brand

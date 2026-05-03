@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/public/cad-agent-sandbox.svg" alt="CAD Agent Sandbox logo" width="112">
+  <img src="docs/public/cad-agent-sandbox.png" alt="CAD Agent Sandbox logo" width="112">
 </p>
 
 <h1 align="center">CAD Agent Sandbox</h1>

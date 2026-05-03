@@ -10,13 +10,14 @@ export default defineConfig({
   base,
   cleanUrls: true,
   head: [
-    ['link', { rel: 'icon', href: withBase('cad-agent-sandbox.svg') }],
+    ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: withBase('cad-agent-sandbox-32.png') }],
+    ['link', { rel: 'apple-touch-icon', sizes: '192x192', href: withBase('cad-agent-sandbox-192.png') }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: 'CAD Agent Sandbox' }],
     ['meta', { property: 'og:description', content: 'Compare local CAD-as-code toolchains against repeatable furniture specs.' }]
   ],
   themeConfig: {
-    logo: withBase('cad-agent-sandbox.svg'),
+    logo: '/cad-agent-sandbox.png',
     search: {
       provider: 'local'
     },
