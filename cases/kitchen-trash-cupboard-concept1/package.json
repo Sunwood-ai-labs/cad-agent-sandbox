@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "kitchen-trash-cupboard-cad-benchmark",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +12,6 @@
   "devDependencies": {
     "@jscad/cli": "^2.3.0",
     "@jscad/modeling": "^2.12.6",
-    "forgecad": "^0.8.2"
+    "forgecad": "^0.9.4"
   }
 }
